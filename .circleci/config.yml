@@ -1,17 +1,17 @@
 version: 2.1
 
-workflows:
-  test-env-vars:
-    jobs:
-      - build
-
 jobs:
-  build:
+  my_job:
     docker:
-      - image: cimg/base:2020.01
+      - image: circleci/node:13.8.0
     steps:
-      - checkout
+      - run: exit 1
       - run:
-          name: "echo an env var that is part of our project"
-          command: |
-            echo $Password
+          name: on error
+          command: echo "Hello Error!"
+          when: on_fail
+
+workflows:
+  my_workflow:
+    jobs:
+      - my_job
