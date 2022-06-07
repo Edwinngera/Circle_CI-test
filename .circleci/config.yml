@@ -14,4 +14,4 @@ jobs:
       - run:
           name: "echo an env var that is part of our project"
           command: |
-            echo $MY_ENV_VAR
+            echo $Password
